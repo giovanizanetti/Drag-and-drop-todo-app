@@ -1,0 +1,10 @@
+.btn-primary:focus {
+  outline: none;
+  box-shadow: none;
+}
+.pointer {
+  cursor: pointer;
+}
+.App {
+  text-align: center;
+}
