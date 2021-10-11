@@ -22,7 +22,7 @@ const TodoItem = ({ todo, handleCompleted, handleDelete }) => {
         onChange={() => handleCompleted(todo.id)}
       />
       <div className='pointer w-auto'>
-        <FaTrashAlt onClick={() => handleDelete(todo.id)} color='red' />
+        <FaTrashAlt title='delete-todo' onClick={() => handleDelete(todo.id)} color='red' />
       </div>
     </li>
   )
