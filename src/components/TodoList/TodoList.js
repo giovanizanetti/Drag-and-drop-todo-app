@@ -1,3 +1,4 @@
+import { Modal } from 'react-bootstrap'
 import { TODOS } from '../../config/constants'
 import { useLocalStorage } from '../../hooks/useLocalStorege'
 import { initialTodos } from '../../initialdata'
@@ -23,15 +24,19 @@ const TodoList = () => {
     setTodos(filteredTodos)
   }
   return (
-    <>
-      <AddTodo addTodo={(todo) => handleAddTodo(todo)} />
-      <ul className='py-4 container'>
-        {todos &&
-          todos.map((todo) => {
-            return <TodoItem key={todo.id} handleCompleted={handleCompleted} handleDelete={handleDelete} todo={todo} />
-          })}
-      </ul>
-    </>
+    <Modal.Dialog>
+      <Modal.Body>
+        <AddTodo addTodo={(todo) => handleAddTodo(todo)} />
+        <ul className='py-4 container'>
+          {todos &&
+            todos.map((todo) => {
+              return (
+                <TodoItem key={todo.id} handleCompleted={handleCompleted} handleDelete={handleDelete} todo={todo} />
+              )
+            })}
+        </ul>
+      </Modal.Body>
+    </Modal.Dialog>
   )
 }
 
