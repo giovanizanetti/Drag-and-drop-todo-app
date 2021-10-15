@@ -8,3 +8,11 @@
 .App {
   text-align: center;
 }
+.min-width-30 {
+  min-width: 30%;
+}
+.flex-end-center-align {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

@@ -1,4 +1,4 @@
-import { Modal } from 'react-bootstrap'
+import { Card, Accordion } from 'react-bootstrap'
 import { TODOS } from '../../config/constants'
 import { useLocalStorage } from '../../hooks/useLocalStorege'
 import { initialTodos } from '../../initialdata'
@@ -15,6 +15,13 @@ const TodoList = () => {
     updatedTodos[indexToUpdate].completed = !updatedTodos[indexToUpdate].completed
     setTodos(updatedTodos)
   }
+  const handleUpdate = (e, id, field) => {
+    let indexToUpdate = todos.findIndex((todo) => todo.id === id)
+    const updatedTodos = [...todos]
+    const newValue = field === 'completed' ? !updatedTodos[indexToUpdate].completed : e.target.value
+    updatedTodos[indexToUpdate][field] = newValue
+    setTodos(updatedTodos)
+  }
 
   const handleAddTodo = (todo) => {
     setTodos((prevTodos) => [...prevTodos, todo])
@@ -24,19 +31,25 @@ const TodoList = () => {
     setTodos(filteredTodos)
   }
   return (
-    <Modal.Dialog>
-      <Modal.Body>
+    <Card className='mx-auto my-5 w-md-50'>
+      <Card.Body>
         <AddTodo addTodo={(todo) => handleAddTodo(todo)} />
-        <ul className='py-4 container'>
+        <Accordion defaultActiveKey='0' flush={true}>
           {todos &&
             todos.map((todo) => {
               return (
-                <TodoItem key={todo.id} handleCompleted={handleCompleted} handleDelete={handleDelete} todo={todo} />
+                <TodoItem
+                  key={todo.id}
+                  handleCompleted={handleCompleted}
+                  handleDelete={handleDelete}
+                  handleUpdate={handleUpdate}
+                  todo={todo}
+                />
               )
             })}
-        </ul>
-      </Modal.Body>
-    </Modal.Dialog>
+        </Accordion>
+      </Card.Body>
+    </Card>
   )
 }
 

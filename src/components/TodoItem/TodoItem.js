@@ -1,30 +1,37 @@
-import { Form } from 'react-bootstrap'
+import { Form, Accordion } from 'react-bootstrap'
+import { FaTrashAlt, FaEdit } from 'react-icons/fa'
 import { useState } from 'react'
-import { FaTrashAlt } from 'react-icons/fa'
 
-const TodoItem = ({ todo, handleCompleted, handleDelete }) => {
-  const [showDescription, setShowDescription] = useState(false)
+import TodoDetails from '../TodoDetails/TodoDetails'
+
+const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate }) => {
+  const [show, setShow] = useState(false)
+
   const label = todo.completed ? <del title='completed'>{todo.name}</del> : todo.name
 
   return (
-    <li
-      title='todo'
-      className='pointer list-unstyled d-flex justify-content-between'
-      onMouseLeave={() => setShowDescription(!showDescription)}
-      onMouseEnter={() => setShowDescription(!showDescription)}
-    >
-      <Form.Check
-        inline
-        label={label}
-        type='checkbox'
-        id={todo.id}
-        checked={todo.completed}
-        onChange={() => handleCompleted(todo.id)}
-      />
-      <div className='pointer w-auto'>
-        <FaTrashAlt title='delete-todo' onClick={() => handleDelete(todo.id)} color='red' />
-      </div>
-    </li>
+    <Accordion.Item eventKey={todo.id}>
+      <Accordion.Header className='p-0' onClick={() => setShow(!show)}>
+        <div title='todo' className='d-flex justify-content-between w-100'>
+          <Form.Check
+            onClick={(e) => {
+              e.stopPropagation()
+            }}
+            inline
+            label={label}
+            type='checkbox'
+            id={todo.id}
+            checked={todo.completed}
+            onChange={(e) => handleUpdate(e, todo.id, 'completed')}
+          />
+          <div className='pointer w-auto px-2 min-width-30 d-flex flex-end-center-align'>
+            <FaEdit className='mx-1 h-100' title='show-todo-details' />
+            <FaTrashAlt className='ml-1 h-100' title='delete-todo' onClick={() => handleDelete(todo.id)} color='red' />
+          </div>
+        </div>
+      </Accordion.Header>
+      {show && <TodoDetails todo={todo} handleUpdate={handleUpdate} />}
+    </Accordion.Item>
   )
 }
 export default TodoItem

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Button, Form, Alert } from 'react-bootstrap'
 import { v4 as generateUUID } from 'uuid'
 
@@ -6,6 +6,12 @@ const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [alert, setAlert] = useState(null)
+
+  //Create use focus hook
+  const inputRef = useRef()
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
 
   const handleAddTodo = (e) => {
     if (!name?.length) {
@@ -34,6 +40,7 @@ const AddTodo = ({ addTodo }) => {
       {alert && <Alert variant='warning'>{alert}</Alert>}
       <Form onSubmit={(e) => handleAddTodo(e)}>
         <Form.Control
+          ref={inputRef}
           title='name'
           value={name}
           onChange={(e) => handleChange(e, 'name')}
@@ -53,7 +60,7 @@ const AddTodo = ({ addTodo }) => {
         <Button
           title='addtodo-button'
           onClick={(e) => handleAddTodo(e)}
-          className='mx-auto d-flex'
+          className='mx-auto d-flex mb-5'
           variant='primary center'
         >
           Save
