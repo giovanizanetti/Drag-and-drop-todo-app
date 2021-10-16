@@ -7,10 +7,10 @@ function App() {
   return (
     <>
       <Navbar title='header' bg='dark'>
-        THis is the header
+        <h1 className='text-light px-5 m-auto'>Simple Todo App</h1>
       </Navbar>
       <Container className='d-flex justify-content-center mt-5'>
-        <Col s={12} md={8} xl={6}>
+        <Col xs={12} sm={8} xl={5}>
           <TodoList />
         </Col>
       </Container>
