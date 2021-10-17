@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Button, Form, Alert } from 'react-bootstrap'
+import { Button, Form, Alert, Container } from 'react-bootstrap'
 import { v4 as generateUUID } from 'uuid'
 
 const AddTodo = ({ addTodo }) => {
@@ -14,16 +14,18 @@ const AddTodo = ({ addTodo }) => {
   }, [])
 
   const handleAddTodo = (e) => {
+    const newtodo = {
+      name,
+      description,
+      completed: false,
+      id: generateUUID(),
+    }
+
     if (!name?.length) {
       setAlert('Todo must at least has a name!')
     } else {
       e.preventDefault()
-      const newtodo = {
-        name,
-        description,
-        completed: false,
-        id: generateUUID(),
-      }
+
       addTodo(newtodo)
       setName('')
       setDescription('')
@@ -36,7 +38,7 @@ const AddTodo = ({ addTodo }) => {
   }
 
   return (
-    <>
+    <Container>
       {alert && <Alert variant='warning'>{alert}</Alert>}
       <Form onSubmit={(e) => handleAddTodo(e)}>
         <Form.Control
@@ -66,7 +68,7 @@ const AddTodo = ({ addTodo }) => {
           Save
         </Button>
       </Form>
-    </>
+    </Container>
   )
 }
 

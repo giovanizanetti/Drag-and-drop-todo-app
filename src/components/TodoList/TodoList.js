@@ -31,6 +31,7 @@ const TodoList = () => {
   }
 
   const handleDragEnd = (result) => {
+    if (!result.destination) return
     let updatedTodos
     const items = [...todos]
     const [reorderedItem] = items.splice(result.source.index, 1)
@@ -52,7 +53,7 @@ const TodoList = () => {
                     {todos &&
                       todos.map((todo, index) => {
                         return (
-                          <Draggable key={todo.id} draggableId={todo.id.toString()} index={index}>
+                          <Draggable type='TODO' key={todo.id} draggableId={todo.id.toString()} index={index}>
                             {(provided) => {
                               return (
                                 <TodoItem
