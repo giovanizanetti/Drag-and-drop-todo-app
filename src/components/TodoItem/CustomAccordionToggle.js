@@ -2,13 +2,13 @@ import { useAccordionButton } from 'react-bootstrap'
 
 function CustomAccordionToggle({ children, eventKey, handleShow }) {
   const decoratedOnClick = useAccordionButton(eventKey, () => {
-    handleShow()
+    handleShow && handleShow()
   })
 
   return (
-    <button type='button' className='customtoggle' onClick={decoratedOnClick}>
+    <div className='customtoggle pointer' onClick={decoratedOnClick}>
       {children}
-    </button>
+    </div>
   )
 }
 

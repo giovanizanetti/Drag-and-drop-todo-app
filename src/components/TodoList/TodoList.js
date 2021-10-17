@@ -57,7 +57,6 @@ const TodoList = () => {
                               return (
                                 <TodoItem
                                   provided={provided}
-                                  // innerRef={provided.innerRef}
                                   handleDelete={handleDelete}
                                   handleUpdate={handleUpdate}
                                   todo={todo}

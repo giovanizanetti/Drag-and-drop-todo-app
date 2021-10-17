@@ -32,7 +32,7 @@ const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided 
           />
           <div className='pointer w-auto px-2 d-flex flex-end-center-align'>
             <CustomAccordionToggle handleShow={() => setShow(!show)} eventKey={todo.id}>
-              <FaEdit className='h-100 mb-1' title='show-todo-details' />
+              <FaEdit className='h-100 mb-1 mx-1' title='show-todo-details' />
             </CustomAccordionToggle>
 
             <FaTrashAlt className='ml-1 h-100' title='delete-todo' onClick={() => handleDelete(todo.id)} color='red' />
