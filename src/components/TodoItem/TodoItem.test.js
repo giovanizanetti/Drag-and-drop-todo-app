@@ -20,4 +20,9 @@ describe('TodoItem', () => {
     const doneTodo = screen.getByTitle('completed')
     expect(doneTodo).toBeInTheDocument()
   })
+  test('should todo display icon showing that there is a description inside', () => {
+    render(<TodoItem todo={defaultTodo} />)
+    const hasDescriptionIcon = screen.getByTitle('description-icon')
+    expect(hasDescriptionIcon).toBeInTheDocument()
+  })
 })

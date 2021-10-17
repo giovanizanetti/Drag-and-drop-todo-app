@@ -1,9 +1,10 @@
 import { Form, Accordion, Card } from 'react-bootstrap'
-import { FaTrashAlt, FaEdit } from 'react-icons/fa'
+import { FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 
 import TodoDetails from '../TodoDetails/TodoDetails'
 import CustomAccordionToggle from './CustomAccordionToggle'
+import { GrTextAlignFull } from 'react-icons/gr'
 
 const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided }) => {
   const { innerRef, draggableProps, dragHandleProps } = provided || {}
@@ -31,11 +32,11 @@ const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided 
             onChange={(e) => handleUpdate(e, todo.id, 'completed')}
           />
           <div className='pointer w-auto px-2 d-flex flex-end-center-align'>
+            {todo.description && <GrTextAlignFull title='description-icon' color='#212529c2' className='mx-1' />}
             <CustomAccordionToggle handleShow={() => setShow(!show)} eventKey={todo.id}>
               <FaEdit className='h-100 mb-1 mx-1' title='show-todo-details' />
             </CustomAccordionToggle>
-
-            <FaTrashAlt className='ml-1 h-100' title='delete-todo' onClick={() => handleDelete(todo.id)} color='red' />
+            <FaRegTrashAlt className='ml-1 h-100' title='delete-todo' onClick={() => handleDelete(todo.id)} />
           </div>
         </div>
       </Card.Header>

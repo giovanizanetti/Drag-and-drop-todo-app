@@ -29,6 +29,7 @@ const TodoDetails = (props) => {
       <Form className='p-2'>
         <Form.Group className='mb-3'>
           <Form.Control
+            plaintext
             ref={inputRef}
             className='p-2'
             onChange={(e) => handleUpdate(e, id, 'name')}
