@@ -6,6 +6,7 @@ import { initialTodos } from '../../initialdata'
 
 import AddTodo from '../AddTodo/AddTodo'
 import TodoItem from '../TodoItem/TodoItem'
+import TodosMenu from '../TodosMenu/TodosMenu.js'
 
 const TodoList = () => {
   const [todos, setTodos] = useLocalStorage(TODOS, initialTodos)
@@ -30,6 +31,10 @@ const TodoList = () => {
     setTodos(filteredTodos)
   }
 
+  const hanldeDeleteAll = () => {
+    setTodos([])
+  }
+
   const handleDragEnd = (result) => {
     if (!result.destination) return
     let updatedTodos
@@ -43,6 +48,7 @@ const TodoList = () => {
   return (
     <Card className='mx-auto my-5 w-md-50'>
       <Card.Body>
+        <TodosMenu handleDeleteAll={hanldeDeleteAll} />
         <AddTodo addTodo={(todo) => handleAddTodo(todo)} />
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId='"droppable-todos' type='TODO'>

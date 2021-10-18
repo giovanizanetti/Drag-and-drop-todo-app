@@ -17,3 +17,14 @@
   border: 0;
   background: none;
 }
+.float-right {
+  float: right;
+}
+
+/* overwriting Bootstrap*/
+.dropdown-toggle::after {
+  display: none !important;
+}
+.todo-name {
+  margin-left: -0.5rem;
+}

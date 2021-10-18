@@ -3,20 +3,20 @@ import { v4 as generateUUID } from 'uuid'
 export const initialTodos = [
   {
     id: generateUUID(),
-    name: 'delectus aut autem',
-    description: 'skhdbdksjbkjsdbkjdsbksdb',
-    completed: true,
-  },
-  {
-    id: generateUUID(),
-    name: 'quis ut nam facilis et officia qui',
-    description: 'skhdbdksjbkjsdbkjdsbksdb',
+    name: 'Go to the gin',
+    description: 'Every day 6pm for one hour.',
     completed: false,
   },
   {
     id: generateUUID(),
-    name: 'fugiat veniam minus',
-    description: 'skhdbdksjbkjsdbkjdsbksdb',
+    name: 'Buy groceries',
+    description: 'Tomorrow after work. Take reusable bags',
+    completed: false,
+  },
+  {
+    id: generateUUID(),
+    name: 'Meditate',
+    description: 'Every day for 20 minutes.',
     completed: false,
   },
 ]

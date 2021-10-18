@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import { Button, Form, Alert, Container } from 'react-bootstrap'
 import { v4 as generateUUID } from 'uuid'
+import { useTranslation } from 'react-i18next'
 
 const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [alert, setAlert] = useState(null)
+  const { t } = useTranslation()
 
   //Create use focus hook
   const inputRef = useRef()
@@ -22,7 +24,7 @@ const AddTodo = ({ addTodo }) => {
     }
 
     if (!name?.length) {
-      setAlert('Todo must at least has a name!')
+      setAlert(t('add_todo.name.alert'))
     } else {
       e.preventDefault()
 
@@ -48,7 +50,7 @@ const AddTodo = ({ addTodo }) => {
           onChange={(e) => handleChange(e, 'name')}
           className='mb-3'
           type='text'
-          placeholder='Add your todo name here'
+          placeholder={t('add_todo.name.placeholder')}
         />
         <Form.Control
           title='description'
@@ -57,7 +59,7 @@ const AddTodo = ({ addTodo }) => {
           className='mb-3'
           as='textarea'
           rows={3}
-          placeholder='Describe your todo here'
+          placeholder={t('add_todo.description.placeholder')}
         />
         <Button
           title='addtodo-button'
@@ -65,7 +67,7 @@ const AddTodo = ({ addTodo }) => {
           className='mx-auto d-flex mb-5'
           variant='primary center'
         >
-          Save
+          {t('handlers.save')}
         </Button>
       </Form>
     </Container>

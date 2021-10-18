@@ -1,0 +1,27 @@
+{
+  "header": {
+    "title": "Simple Todo App"
+  },
+  "menu": {
+    "delete_all": {
+      "lable": "Delete all",
+      "alert": {
+        "message": " Are you sure you want to remove all todos?",
+        "cancel": "Cancel",
+        "yes": "Yes"
+      }
+    }
+  },
+  "add_todo": {
+    "name": {
+      "alert": "Todo must at least has a name!",
+      "placeholder": "Add your todo name here"
+    },
+    "description": {
+      "placeholder": "Add a description here"
+    }
+  },
+  "handlers": {
+    "save": "Save"
+  }
+}
