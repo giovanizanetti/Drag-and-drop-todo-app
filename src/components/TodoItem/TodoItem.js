@@ -1,10 +1,11 @@
 import { Form, Accordion, Card } from 'react-bootstrap'
 import { FaRegTrashAlt, FaEdit } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
+import { GrTextAlignFull } from 'react-icons/gr'
+import { COMPLETED } from '../../config/constants'
 
 import TodoDetails from '../TodoDetails/TodoDetails'
 import CustomAccordionToggle from '../CustomAccordionToggle'
-import { GrTextAlignFull } from 'react-icons/gr'
 
 const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided }) => {
   const { innerRef, draggableProps, dragHandleProps } = provided || {}
@@ -15,7 +16,7 @@ const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided 
     setShow(false)
   }, [show])
 
-  const todoName = todo.completed ? <del title='completed'>{todo.name}</del> : todo.name
+  const todoName = todo.completed ? <del title={COMPLETED}>{todo.name}</del> : todo.name
 
   return (
     <Card className='my-2' ref={innerRef} {...draggableProps} {...dragHandleProps}>
@@ -30,12 +31,12 @@ const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided 
               type='checkbox'
               id={todo.id}
               checked={todo.completed}
-              onChange={(e) => handleUpdate(e, todo.id, 'completed')}
+              onChange={(e) => handleUpdate(e, todo.id, COMPLETED)}
             />
             <span className='todo-name'>{todoName}</span>
           </div>
 
-          <div className='pointer w-auto px-2 d-flex flex-end-center-align'>
+          <div className='pointer w-auto pl-2 d-flex flex-end-center-align'>
             {todo.description && (
               <CustomAccordionToggle onClick={() => setReadMode(true)} eventKey={todo.id}>
                 <GrTextAlignFull title='description-icon' color='#212529c2' className='mx-1 mb-1' />

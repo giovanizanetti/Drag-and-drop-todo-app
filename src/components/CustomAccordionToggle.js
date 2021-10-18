@@ -6,7 +6,7 @@ function CustomAccordionToggle({ children, eventKey, handleShow }) {
   })
 
   return (
-    <div className='customtoggle pointer' onClick={decoratedOnClick}>
+    <div className='custom-toggle pointer' onClick={decoratedOnClick}>
       {children}
     </div>
   )

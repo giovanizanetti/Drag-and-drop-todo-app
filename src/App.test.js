@@ -17,7 +17,7 @@ describe('Header', () => {
   })
 
   test('should header display the app title', () => {
-    const appTitle = 'Simple Todo App'
+    const appTitle = 'header.title'
     expect(header).toHaveTextContent(appTitle)
   })
 })

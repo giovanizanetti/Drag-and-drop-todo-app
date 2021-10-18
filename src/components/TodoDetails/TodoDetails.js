@@ -3,6 +3,7 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { useTranslation } from 'react-i18next'
+import { NAME, DESCRIPTION } from '../../config/constants'
 
 import CustomAccordionToggle from '../CustomAccordionToggle'
 
@@ -35,7 +36,7 @@ const TodoDetails = (props) => {
           <Form.Control
             ref={inputRef}
             className='p-2'
-            onChange={(e) => handleUpdate(e, id, 'name')}
+            onChange={(e) => handleUpdate(e, id, NAME)}
             type='text'
             value={name}
           />
@@ -45,7 +46,7 @@ const TodoDetails = (props) => {
             className='p-2'
             as='textarea'
             value={description}
-            onChange={(e) => handleUpdate(e, id, 'description')}
+            onChange={(e) => handleUpdate(e, id, DESCRIPTION)}
             placeholder={t('add_todo.description.placeholder')}
           />
         </Form.Group>

@@ -3,6 +3,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { TODOS } from '../../config/constants'
 import { useLocalStorage } from '../../hooks/useLocalStorege'
 import { initialTodos } from '../../initialdata'
+import { COMPLETED } from '../../config/constants'
 
 import AddTodo from '../AddTodo/AddTodo'
 import TodoItem from '../TodoItem/TodoItem'
@@ -16,7 +17,7 @@ const TodoList = () => {
     const indexToUpdate = todos.findIndex((todo) => todo.id === id)
     const items = [...todos]
     const toggleDone = !items[indexToUpdate].completed
-    const newValue = field === 'completed' ? toggleDone : e.target.value
+    const newValue = field === COMPLETED ? toggleDone : e.target.value
     items[indexToUpdate][field] = newValue
     updatedTodos = items
     setTodos(updatedTodos)

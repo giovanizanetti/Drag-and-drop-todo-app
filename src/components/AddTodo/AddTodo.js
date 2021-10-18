@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Button, Form, Alert, Container } from 'react-bootstrap'
 import { v4 as generateUUID } from 'uuid'
 import { useTranslation } from 'react-i18next'
+import { NAME, DESCRIPTION } from '../../config/constants'
 
 const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
@@ -36,7 +37,7 @@ const AddTodo = ({ addTodo }) => {
 
   const handleChange = (e, field) => {
     setAlert(null)
-    field === 'name' ? setName(e.target.value) : setDescription(e.target.value)
+    field === NAME ? setName(e.target.value) : setDescription(e.target.value)
   }
 
   return (
@@ -45,17 +46,17 @@ const AddTodo = ({ addTodo }) => {
       <Form onSubmit={(e) => handleAddTodo(e)}>
         <Form.Control
           ref={inputRef}
-          title='name'
+          title={NAME}
           value={name}
-          onChange={(e) => handleChange(e, 'name')}
+          onChange={(e) => handleChange(e, NAME)}
           className='mb-3'
           type='text'
           placeholder={t('add_todo.name.placeholder')}
         />
         <Form.Control
-          title='description'
+          title={DESCRIPTION}
           value={description}
-          onChange={(e) => handleChange(e, 'description')}
+          onChange={(e) => handleChange(e, DESCRIPTION)}
           className='mb-3'
           as='textarea'
           rows={3}

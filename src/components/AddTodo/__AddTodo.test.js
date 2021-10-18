@@ -38,7 +38,7 @@ describe('AddTodo submit', () => {
     render(<AddTodo />)
     const button = screen.getByTitle('addtodo-button')
     fireEvent.click(button)
-    const text = 'Todo must at least has a name!'
+    const text = 'add_todo.name.alert'
     const alert = screen.getByText(text)
 
     expect(alert).toBeTruthy()

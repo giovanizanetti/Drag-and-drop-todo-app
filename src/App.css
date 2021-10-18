@@ -1,7 +1,3 @@
-.btn-primary:focus {
-  outline: none;
-  box-shadow: none;
-}
 .pointer {
   cursor: pointer;
 }
@@ -13,18 +9,22 @@
   justify-content: flex-end;
   align-items: center;
 }
-.customtoggle {
+.custom-toggle {
   border: 0;
   background: none;
 }
 .float-right {
   float: right;
 }
+.todo-name {
+  margin-left: -0.5rem;
+}
 
 /* overwriting Bootstrap*/
 .dropdown-toggle::after {
   display: none !important;
 }
-.todo-name {
-  margin-left: -0.5rem;
+.btn-primary:focus:not(:focus-visible) {
+  outline: 0 !important;
+  box-shadow: none !important;
 }

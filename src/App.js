@@ -11,7 +11,7 @@ function App() {
       <Navbar title='header' bg='dark'>
         <h1 className='text-light px-5 m-auto'>{t('header.title')}</h1>
       </Navbar>
-      <Container className='d-flex justify-content-center mt-5'>
+      <Container className='d-flex justify-content-center'>
         <Col xs={12} sm={8} xl={5}>
           <TodoList />
         </Col>
