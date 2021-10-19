@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import AddTodo from '../AddTodo/AddTodo'
+import AddTodo from './AddTodo'
 import TodoList from '../TodoList/TodoList'
 
 const setup = (title) => {

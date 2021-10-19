@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Drag and drop todo app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Check out the deployed version here!]()
 
-## Available Scripts
+## What this project is about
 
-In the project directory, you can run:
+I am creating this todo app as part of a frontend assignment.
+The user create, save, update and delete todos whith caontains name and description.
+Todos are persisted in the brawser using the Local Storage.
 
-### `yarn start`
+## Table of contents:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **[Technologies used](#technologies-used)**
+- **[Goals for this project](#goals-for-this-project)**
+- **[Requirements briefing](#requirements)**
+- **[Features built so far overview with pull requests](#features-built-so-far-overview-with-pull-requests)**
+- **[My git workflow](#my-git-workflow)**
+- **[My workflow](#my-workflow)**
+- **[create-react-app-docs](#create-react-app)**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies used
 
-### `yarn test`
+- **[React](./src/components/recipe/RecipeList/index.js)**
+- **[React-Bootstrap](https://react-bootstrap.netlify.app/)**
+- **[React-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)**
+- **[React-i18Next](https://react.i18next.com)**
+- **[Browser Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Goals for this project:
 
-### `yarn build`
+- Practise React
+- Make a working application.
+- Preapare for a job assignment
+- Learn React Beaultiful DND library
+- Showcase some of what I can do and get a job as a junior developer.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The todo application shall consist out of a single view and be implemented as a single page application, background requests are preferred over page reloads. Within the view, there should be a list of all currently existing todo tasks and an easy interface to add a new todo task, i.e., two input fields to add a name as well as a description for a new task and a button to save the new task. Besides adding a new task, one should be able to tick existing tasks, such that the application marks these tasks as done. Please make your todo application persistent across page reloads by adding a basic API endpoint or Local Storage that can store a new task and return all available tasks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What will be evaluated:
 
-### `yarn eject`
+- clean and understandable code,
+- overall structure and concept of the application
+- maintainability and test-ability of the code -
+- extend-ability of the application with further features and
+  -overall familiarity with the coding language and ecosystem
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Create React App
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project was scaffolded using the create-react-app cli.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**[The standard create-react-app docs can be found in here](./ReactREADME.md)**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## [Check out the deployed version here!]()
