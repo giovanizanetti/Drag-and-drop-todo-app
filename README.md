@@ -13,9 +13,8 @@ Todos are persisted in the brawser using the Local Storage.
 - **[Technologies used](#technologies-used)**
 - **[Goals for this project](#goals-for-this-project)**
 - **[Requirements briefing](#requirements)**
-- **[Features built so far overview with pull requests](#features-built-so-far-overview-with-pull-requests)**
+- **[What will be evaluated](#what will be evaluated)**
 - **[My git workflow](#my-git-workflow)**
-- **[My workflow](#my-workflow)**
 - **[create-react-app-docs](#create-react-app)**
 
 ## Technologies used
@@ -38,7 +37,7 @@ Todos are persisted in the brawser using the Local Storage.
 
 The todo application shall consist out of a single view and be implemented as a single page application, background requests are preferred over page reloads. Within the view, there should be a list of all currently existing todo tasks and an easy interface to add a new todo task, i.e., two input fields to add a name as well as a description for a new task and a button to save the new task. Besides adding a new task, one should be able to tick existing tasks, such that the application marks these tasks as done. Please make your todo application persistent across page reloads by adding a basic API endpoint or Local Storage that can store a new task and return all available tasks
 
-## What will be evaluated:
+## What will be evaluated
 
 - Clean and understandable code,
 - Overall structure and concept of the application
