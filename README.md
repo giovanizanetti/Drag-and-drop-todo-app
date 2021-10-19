@@ -1,6 +1,6 @@
 # Drag and drop todo app
 
-## [Check out the deployed version here!]()
+## [Check out the deployed version here!](https://giovani-zanetti-drag-and-drop-todo.netlify.app/#/action-1)
 
 ## What this project is about
 
@@ -52,4 +52,4 @@ This project was scaffolded using the create-react-app cli.
 
 **[The standard create-react-app docs can be found in here](./ReactREADME.md)**
 
-## [Check out the deployed version here!]()
+## [Check out the deployed version here!](https://giovani-zanetti-drag-and-drop-todo.netlify.app/#/action-1)
