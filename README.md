@@ -5,7 +5,7 @@
 ## What this project is about
 
 I am creating this todo app as part of a frontend assignment.
-The user create, save, update and delete todos whith caontains name and description.
+The user create, save, update and delete todos whith name and description.
 Todos are persisted in the brawser using the Local Storage.
 
 ## Table of contents:
@@ -40,11 +40,11 @@ The todo application shall consist out of a single view and be implemented as a 
 
 ## What will be evaluated:
 
-- clean and understandable code,
-- overall structure and concept of the application
-- maintainability and test-ability of the code -
-- extend-ability of the application with further features and
-  -overall familiarity with the coding language and ecosystem
+- Clean and understandable code,
+- Overall structure and concept of the application
+- Maintainability and test-ability of the code -
+- Extend-ability of the application with further features and
+-Overall familiarity with the coding language and ecosystem
 
 ## Create React App
 
