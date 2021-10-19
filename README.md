@@ -13,9 +13,8 @@ Todos are persisted in the brawser using the Local Storage.
 - **[Technologies used](#technologies-used)**
 - **[Goals for this project](#goals-for-this-project)**
 - **[Requirements briefing](#requirements)**
-- **[What will be evaluated](#what will be evaluated)**
-- **[My git workflow](#my-git-workflow)**
-- **[create-react-app-docs](#create-react-app)**
+- **[What will be evaluated](#what-will-be-evaluated)**
+- **[Create-react-app-docs](#create-react-app)**
 
 ## Technologies used
 
