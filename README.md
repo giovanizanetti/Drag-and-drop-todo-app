@@ -5,8 +5,8 @@
 ## What this project is about
 
 I am creating this todo app as part of a frontend assignment.
-The user create, save, update and delete todos whith name and description.
-Todos are persisted in the brawser using the Local Storage.
+The user creates, save, update and delete todos with name and description.
+Todos are persisted in the browser using the Local Storage.
 
 ## Table of contents:
 
@@ -28,8 +28,8 @@ Todos are persisted in the brawser using the Local Storage.
 
 - Practise React
 - Make a working application.
-- Preapare for a job assignment
-- Learn React Beaultiful DND library
+- Prepare for a job assignment
+- Learn React Beautiful DND library
 - Showcase some of what I can do and get a job as a junior developer.
 
 ## Requirements
@@ -46,7 +46,7 @@ The todo application shall consist out of a single view and be implemented as a 
 
 ## Create React App
 
-This project was scaffolded using the create-react-app cli.
+This project was scaffolded using the create-react-app CLI.
 
 **[The standard create-react-app docs can be found in here](./ReactREADME.md)**
 
