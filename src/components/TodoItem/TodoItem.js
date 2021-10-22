@@ -8,6 +8,7 @@ import TodoDetails from '../TodoDetails/TodoDetails'
 import CustomAccordionToggle from '../CustomAccordionToggle'
 
 const TodoItem = ({ todo, handleDelete, handleUpdate, provided }) => {
+  const { completed, description, name, id } = todo
   const { innerRef, draggableProps, dragHandleProps } = provided || {}
   const [show, setShow] = useState(false)
   const [readMode, setReadMode] = useState(false)
@@ -15,8 +16,6 @@ const TodoItem = ({ todo, handleDelete, handleUpdate, provided }) => {
   useEffect(() => {
     setShow(false)
   }, [show])
-
-  const todoName = todo.completed ? <del title={COMPLETED}>{todo.name}</del> : todo.name
 
   return (
     <Card className='my-2' ref={innerRef} {...draggableProps} {...dragHandleProps}>
@@ -29,28 +28,30 @@ const TodoItem = ({ todo, handleDelete, handleUpdate, provided }) => {
               }}
               inline
               type='checkbox'
-              id={todo.id}
-              checked={todo.completed}
-              onChange={(e) => handleUpdate(e, todo.id, COMPLETED)}
+              id={id}
+              checked={completed}
+              onChange={(e) => handleUpdate(e, id, COMPLETED)}
             />
-            <span className='todo-name'>{todoName}</span>
+            <span title='todo-name' className={`todo-name ${completed && 'line-through'}`}>
+              {name}
+            </span>
           </div>
 
           <div className='pointer w-auto pl-2 d-flex flex-end-center-align'>
-            {todo.description && (
-              <CustomAccordionToggle onClick={() => setReadMode(true)} eventKey={todo.id}>
+            {description && (
+              <CustomAccordionToggle onClick={() => setReadMode(true)} eventKey={id}>
                 <GrTextAlignFull title='description-icon' color='#212529c2' className='mx-1 mb-1' />
               </CustomAccordionToggle>
             )}
-            <CustomAccordionToggle handleShow={() => setShow(!show)} eventKey={todo.id}>
+            <CustomAccordionToggle handleShow={() => setShow(!show)} eventKey={id}>
               <FaEdit className='h-100 mb-1 mx-1' title='show-todo-details' />
             </CustomAccordionToggle>
-            <FaRegTrashAlt className='ml-1 h-100' title='delete-todo' onClick={() => handleDelete(todo.id)} />
+            <FaRegTrashAlt className='ml-1 h-100' title='delete-todo' onClick={() => handleDelete(id)} />
           </div>
         </div>
       </Card.Header>
       {
-        <Accordion.Collapse eventKey={todo.id}>
+        <Accordion.Collapse eventKey={id}>
           <TodoDetails readMode={readMode} show={show} todo={todo} handleUpdate={handleUpdate} />
         </Accordion.Collapse>
       }

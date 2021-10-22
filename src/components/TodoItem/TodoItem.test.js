@@ -17,8 +17,9 @@ describe('TodoItem', () => {
   })
 
   test('should todo be crossed out when completed', () => {
-    const doneTodo = screen.getByTitle('completed')
-    expect(doneTodo).toBeInTheDocument()
+    const doneTodo = screen.getByTitle('todo-name')
+    const className = 'line-through'
+    expect(doneTodo).toHaveClass(className)
   })
   test('should todo display icon showing that there is a description inside', () => {
     const hasDescriptionIcon = screen.getByTitle('description-icon')
