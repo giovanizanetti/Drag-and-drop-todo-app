@@ -7,7 +7,7 @@ import { COMPLETED } from '../../config/constants'
 import TodoDetails from '../TodoDetails/TodoDetails'
 import CustomAccordionToggle from '../CustomAccordionToggle'
 
-const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided }) => {
+const TodoItem = ({ todo, handleDelete, handleUpdate, provided }) => {
   const { innerRef, draggableProps, dragHandleProps } = provided || {}
   const [show, setShow] = useState(false)
   const [readMode, setReadMode] = useState(false)
@@ -51,9 +51,7 @@ const TodoItem = ({ todo, handleCompleted, handleDelete, handleUpdate, provided 
       </Card.Header>
       {
         <Accordion.Collapse eventKey={todo.id}>
-          <Card.Body>
-            <TodoDetails readMode={readMode} show={show} todo={todo} handleUpdate={handleUpdate} />
-          </Card.Body>
+          <TodoDetails readMode={readMode} show={show} todo={todo} handleUpdate={handleUpdate} />
         </Accordion.Collapse>
       }
     </Card>

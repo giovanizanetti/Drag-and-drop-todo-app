@@ -3,17 +3,17 @@ import TodoList from '../TodoList/TodoList'
 import { initialTodos } from '../../initialdata'
 
 describe('TodoList', () => {
-  test('todos are rendered without error', () => {
-    const { getAllByTitle } = render(<TodoList />)
-    const list = getAllByTitle('todo')
+  beforeEach(() => render(<TodoList />))
+
+  test('should todos render without error', () => {
+    const list = screen.getAllByTitle('todo')
     expect(list).toHaveLength(3)
   })
 
-  test('should todo be removed correctely', () => {
-    const { getAllByTitle } = render(<TodoList />)
-    const todo = getAllByTitle('delete-todo')[1]
+  test('should todo be removed correctly', () => {
+    const todo = screen.getAllByTitle('delete-todo')[1]
     fireEvent.click(todo)
-    const list = getAllByTitle('todo')
+    const list = screen.getAllByTitle('todo')
     expect(list).toHaveLength(2)
   })
 })

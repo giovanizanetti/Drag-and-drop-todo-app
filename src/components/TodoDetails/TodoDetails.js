@@ -1,6 +1,5 @@
-import { Form, Button } from 'react-bootstrap'
-import { useRef } from 'react'
-import { useEffect } from 'react'
+import { Form, Button, Card } from 'react-bootstrap'
+import { useEffect, useRef } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { useTranslation } from 'react-i18next'
 import { NAME, DESCRIPTION } from '../../config/constants'
@@ -24,7 +23,7 @@ const TodoDetails = (props) => {
   }, [show, readMode])
 
   return (
-    <>
+    <Card.Body title='todo-details'>
       <div className='d-flex justify-content-end mb-2'>
         <CustomAccordionToggle>
           <GrClose />
@@ -34,6 +33,7 @@ const TodoDetails = (props) => {
       <Form className='p-2'>
         <Form.Group className='mb-3'>
           <Form.Control
+            title={NAME}
             ref={inputRef}
             className='p-2'
             onChange={(e) => handleUpdate(e, id, NAME)}
@@ -43,6 +43,7 @@ const TodoDetails = (props) => {
         </Form.Group>
         <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
           <Form.Control
+            title={DESCRIPTION}
             className='p-2'
             as='textarea'
             value={description}
@@ -57,7 +58,7 @@ const TodoDetails = (props) => {
           </CustomAccordionToggle>
         </div>
       </Form>
-    </>
+    </Card.Body>
   )
 }
 export default TodoDetails

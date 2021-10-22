@@ -10,7 +10,6 @@ const AddTodo = ({ addTodo }) => {
   const [alert, setAlert] = useState(null)
   const { t } = useTranslation()
 
-  //Create use focus hook
   const inputRef = useRef()
   useEffect(() => {
     inputRef.current.focus()

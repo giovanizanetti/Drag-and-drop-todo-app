@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import AddTodo from './AddTodo'
 import TodoList from '../TodoList/TodoList'
+import { NAME, DESCRIPTION } from '../../config/constants'
 
 const setup = (title) => {
   const utils = render(<AddTodo />)
@@ -12,20 +13,19 @@ const setup = (title) => {
 }
 
 describe('AddTodo inputs', () => {
-  test('should todo name input update correctely', () => {
-    const newValue = 'new todo'
-    const emptyValue = ''
-    const { input } = setup('name')
+  const newValue = 'newValue'
+  const emptyValue = ''
+
+  test('should todo name update correctely', () => {
+    const { input } = setup(NAME)
     fireEvent.change(input, { target: { value: newValue } })
     expect(input.value).toBe(newValue)
     fireEvent.change(input, { target: { value: emptyValue } })
     expect(input.value).toBe(emptyValue)
   })
 
-  test('should todo description input update correctly', () => {
-    const newValue = 'new description'
-    const emptyValue = ''
-    const { input } = setup('description')
+  test('should todo name update correctly', () => {
+    const { input } = setup(DESCRIPTION)
     fireEvent.change(input, { target: { value: newValue } })
     expect(input.value).toBe(newValue)
     fireEvent.change(input, { target: { value: emptyValue } })
@@ -34,7 +34,7 @@ describe('AddTodo inputs', () => {
 })
 
 describe('AddTodo submit', () => {
-  test('should alert be shown if user try to add a todo with no name', () => {
+  test('should display an alert when the user tries to add a todo with no name', () => {
     render(<AddTodo />)
     const button = screen.getByTitle('addtodo-button')
     fireEvent.click(button)
@@ -44,7 +44,7 @@ describe('AddTodo submit', () => {
     expect(alert).toBeTruthy()
   })
 
-  test('should todo not be added when no todo name is provided', () => {
+  test('should todo not be added when name is not provided', () => {
     render(<TodoList />)
     const button = screen.getByTitle('addtodo-button')
     fireEvent.click(button)
@@ -52,14 +52,14 @@ describe('AddTodo submit', () => {
     expect(todos).toBe(3)
   })
 
-  test('should todo be added and correctly with name and description', () => {
+  test('should todo be added correctly with name and description', () => {
     render(<TodoList />)
     const todoNameValue = 'go tot the gin'
-    const todoNameInput = screen.getByTitle('name')
+    const todoNameInput = screen.getAllByTitle(NAME)[0]
     fireEvent.change(todoNameInput, { target: { value: todoNameValue } })
 
     const todoDescriptionValue = 'today at 4pm, bring bags'
-    const todoDescriptionInput = screen.getByTitle('description')
+    const todoDescriptionInput = screen.getAllByTitle(DESCRIPTION)[0]
     fireEvent.change(todoDescriptionInput, { target: { value: todoDescriptionValue } })
 
     const button = screen.getByTitle('addtodo-button')
