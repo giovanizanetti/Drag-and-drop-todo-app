@@ -9,7 +9,7 @@ const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const { t } = useTranslation()
-  const [alert, setAlert, isInvalid, setIsInvalid, setDirty] = useAlert(name.length)
+  const [alert, setAlert, isInvalid, setIsInvalid, setDirty, dirty] = useAlert(name.length)
 
   const inputRef = useRef()
   useEffect(() => {
@@ -53,9 +53,14 @@ const AddTodo = ({ addTodo }) => {
     setDescription(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    setDirty(false)
+    setTimeout(() => handleAddTodo(e), 100)
+  }
+
   return (
     <Container>
-      <Form onSubmit={(e) => handleAddTodo(e)}>
+      <Form onSubmit={(e) => handleSubmit}>
         <div className='mb-3'>
           <Form.Control
             isInvalid={isInvalid}
