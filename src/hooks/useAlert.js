@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export const useAlert = (length) => {
+  const [dirty, setDirty] = useState(false)
   const [isInvalid, setIsInvalid] = useState(false)
   const [alert, setAlert] = useState(null)
   const { t } = useTranslation()
 
   useEffect(() => {
-    if (!length) {
+    if (dirty && !length) {
       setIsInvalid(true)
       setAlert(t('add_todo.name.no_length_alert'))
     }
@@ -15,7 +16,7 @@ export const useAlert = (length) => {
       setIsInvalid(true)
       setAlert(t('add_todo.name.max_length_alert'))
     }
-  }, [isInvalid, alert, length, t])
+  }, [isInvalid, alert, length, t, dirty])
 
-  return [alert, setAlert, isInvalid, setIsInvalid]
+  return [alert, setAlert, isInvalid, setIsInvalid, setDirty, dirty]
 }

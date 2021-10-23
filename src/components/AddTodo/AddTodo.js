@@ -9,14 +9,12 @@ const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const { t } = useTranslation()
-  const [alert, setAlert, isInvalid, setIsInvalid] = useAlert(name.length)
+  const [alert, setAlert, isInvalid, setIsInvalid, setDirty] = useAlert(name.length)
 
   const inputRef = useRef()
   useEffect(() => {
-    setAlert(null)
-    setIsInvalid(false)
     inputRef.current.focus()
-  }, [setIsInvalid, setAlert])
+  }, [])
 
   const handleAddTodo = (e) => {
     const newtodo = {
@@ -38,9 +36,9 @@ const AddTodo = ({ addTodo }) => {
   }
 
   const handleNameChange = (e) => {
-    if (name.length > 15) {
-      const trimmedName = e.target.value.substr(0, 16)
-      setAlert(t('add_todo.name.max_length_alert'))
+    setDirty(true)
+    if (name.length > 13) {
+      const trimmedName = e.target.value.substr(0, 14)
       setIsInvalid(true)
       setName(trimmedName)
     } else {

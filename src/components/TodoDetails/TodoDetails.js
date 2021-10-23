@@ -16,7 +16,7 @@ const TodoDetails = (props) => {
   } = props
 
   const inputRef = useRef()
-  const [alert, setAlert, isInvalid, setIsInvalid] = useAlert(name.length)
+  const [alert, setAlert, isInvalid, setIsInvalid, setDirty] = useAlert(name.length)
 
   useEffect(() => {
     if (readMode) return
@@ -24,8 +24,9 @@ const TodoDetails = (props) => {
   }, [show, readMode, name, t])
 
   const handleNameChange = (e) => {
+    setDirty(true)
     if (name.length > 13) {
-      const trimmedName = e.target.value.substr(0, 16)
+      const trimmedName = e.target.value.substr(0, 14)
       handleUpdate(trimmedName, id, NAME)
     } else {
       setIsInvalid(false)
