@@ -30,7 +30,7 @@ const TodoItem = ({ todo, handleDelete, handleUpdate, provided }) => {
               type='checkbox'
               id={id}
               checked={completed}
-              onChange={(e) => handleUpdate(e, id, COMPLETED)}
+              onChange={(e) => handleUpdate(e.target.value, id, COMPLETED)}
             />
             <span title='todo-name' className={`todo-name ${completed && 'line-through'}`}>
               {name}

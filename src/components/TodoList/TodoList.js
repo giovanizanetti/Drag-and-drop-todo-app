@@ -12,12 +12,12 @@ import TodosMenu from '../TodosMenu/TodosMenu.js'
 const TodoList = () => {
   const [todos, setTodos] = useLocalStorage(TODOS, initialTodos)
 
-  const handleUpdate = (e, id, field) => {
+  const handleUpdate = (value, id, field) => {
     let updatedTodos
     const indexToUpdate = todos.findIndex((todo) => todo.id === id)
     const items = [...todos]
     const toggleDone = !items[indexToUpdate].completed
-    const newValue = field === COMPLETED ? toggleDone : e.target.value
+    const newValue = field === COMPLETED ? toggleDone : value
     items[indexToUpdate][field] = newValue
     updatedTodos = items
     setTodos(updatedTodos)

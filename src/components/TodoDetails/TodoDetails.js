@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import { GrClose } from 'react-icons/gr'
 import { useTranslation } from 'react-i18next'
 import { NAME, DESCRIPTION } from '../../config/constants'
-
+import { useAlert } from '../../hooks/useAlert'
 import CustomAccordionToggle from '../CustomAccordionToggle'
 
 const TodoDetails = (props) => {
@@ -16,11 +16,23 @@ const TodoDetails = (props) => {
   } = props
 
   const inputRef = useRef()
+  const [alert, setAlert, isInvalid, setIsInvalid] = useAlert(name.length)
 
   useEffect(() => {
     if (readMode) return
     show && setTimeout(() => inputRef.current.focus(), 100)
-  }, [show, readMode])
+  }, [show, readMode, name, t])
+
+  const handleNameChange = (e) => {
+    if (name.length > 13) {
+      const trimmedName = e.target.value.substr(0, 16)
+      handleUpdate(trimmedName, id, NAME)
+    } else {
+      setIsInvalid(false)
+      setAlert(null)
+      handleUpdate(e.target.value, id, NAME)
+    }
+  }
 
   return (
     <Card.Body title='todo-details'>
@@ -33,21 +45,21 @@ const TodoDetails = (props) => {
       <Form className='p-2'>
         <Form.Group className='mb-3'>
           <Form.Control
+            className=' p-2'
             title={NAME}
+            isInvalid={isInvalid}
             ref={inputRef}
-            className='p-2'
-            onChange={(e) => handleUpdate(e, id, NAME)}
+            onChange={(e) => handleNameChange(e)}
             type='text'
             value={name}
           />
-        </Form.Group>
-        <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
+          {alert && <Form.Control.Feedback type='invalid'>{alert}</Form.Control.Feedback>}
           <Form.Control
             title={DESCRIPTION}
-            className='p-2'
+            className='p-2 mt-3'
             as='textarea'
             value={description}
-            onChange={(e) => handleUpdate(e, id, DESCRIPTION)}
+            onChange={(e) => handleUpdate(e.target.value, id, DESCRIPTION)}
             placeholder={t('add_todo.description.placeholder')}
           />
         </Form.Group>
