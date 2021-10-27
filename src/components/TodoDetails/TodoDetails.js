@@ -24,9 +24,10 @@ const TodoDetails = (props) => {
   }, [show, readMode, name, t])
 
   const handleNameChange = (e) => {
+    const maxLengthAllowed = 13
     setDirty(true)
-    if (name.length > 13) {
-      const trimmedName = e.target.value.substr(0, 14)
+    if (name.length > maxLengthAllowed) {
+      const trimmedName = e.target.value.substr(0, maxLengthAllowed - 1)
       handleUpdate(trimmedName, id, NAME)
     } else {
       setIsInvalid(false)

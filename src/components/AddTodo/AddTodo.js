@@ -9,7 +9,7 @@ const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const { t } = useTranslation()
-  const [alert, setAlert, isInvalid, setIsInvalid, setDirty, dirty] = useAlert(name.length)
+  const [alert, setAlert, isInvalid, setIsInvalid, setDirty] = useAlert(() => name.length)
 
   const inputRef = useRef()
   useEffect(() => {
@@ -36,9 +36,10 @@ const AddTodo = ({ addTodo }) => {
   }
 
   const handleNameChange = (e) => {
+    const maxLengthAllowed = 13
     setDirty(true)
-    if (name.length > 13) {
-      const trimmedName = e.target.value.substr(0, 14)
+    if (name.length > maxLengthAllowed) {
+      const trimmedName = e.target.value.substr(0, maxLengthAllowed - 1)
       setIsInvalid(true)
       setName(trimmedName)
     } else {
@@ -54,18 +55,20 @@ const AddTodo = ({ addTodo }) => {
   }
 
   const handleSubmit = (e) => {
+    // console.log(e.target.value)
+    // // setTimeout(() => handleAddTodo(e), 100)
+    handleAddTodo(e)
     setDirty(false)
-    setTimeout(() => handleAddTodo(e), 100)
   }
 
   return (
     <Container>
-      <Form onSubmit={(e) => handleSubmit}>
+      <Form onSubmit={(e) => handleSubmit(e)}>
         <div className='mb-3'>
           <Form.Control
             isInvalid={isInvalid}
             ref={inputRef}
-            title={NAME}
+            title={'name'}
             value={name}
             onChange={(e) => handleNameChange(e)}
             type='text'

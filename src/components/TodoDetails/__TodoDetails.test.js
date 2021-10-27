@@ -8,7 +8,7 @@ const defaultTodo = {
   completed: true,
 }
 describe('TodoDetails', () => {
-  test('should todo description render correctly', () => {
+  test('should render description correctly', () => {
     render(<TodoDetails todo={defaultTodo} />)
     const todoDescription = screen.getByTitle('todo-details')
     expect(todoDescription).toBeInTheDocument()

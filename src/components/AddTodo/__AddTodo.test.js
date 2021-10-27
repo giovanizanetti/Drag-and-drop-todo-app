@@ -12,11 +12,11 @@ const setup = (title) => {
   }
 }
 
-describe('AddTodo inputs', () => {
+describe('Inputs', () => {
   const newValue = 'newValue'
   const emptyValue = ''
 
-  test('should todo name update correctely', () => {
+  it('Should name update correctely', () => {
     const { input } = setup(NAME)
     fireEvent.change(input, { target: { value: newValue } })
     expect(input.value).toBe(newValue)
@@ -24,7 +24,7 @@ describe('AddTodo inputs', () => {
     expect(input.value).toBe(emptyValue)
   })
 
-  test('should todo description update correctly', () => {
+  it('Should description update correctly', () => {
     const { input } = setup(DESCRIPTION)
     fireEvent.change(input, { target: { value: newValue } })
     expect(input.value).toBe(newValue)
@@ -32,7 +32,7 @@ describe('AddTodo inputs', () => {
     expect(input).toHaveTextContent(emptyValue)
   })
 
-  test('should the todo name have a maximum of 13 characters', () => {
+  it('Should validate name characters limit', () => {
     const longLenthValue = 'this value has more than 13 characters'
     const { input } = setup(NAME)
     fireEvent.change(input, { target: { value: longLenthValue } })
@@ -40,8 +40,8 @@ describe('AddTodo inputs', () => {
   })
 })
 
-describe('AddTodo submit', () => {
-  test('should display an alert when the user tries to add a empty todo', () => {
+describe('Submit', () => {
+  it('Should display an alert when name is empty', () => {
     render(<AddTodo />)
     const button = screen.getByTitle('addtodo-button')
     fireEvent.click(button)
@@ -50,7 +50,7 @@ describe('AddTodo submit', () => {
     expect(alert).toBeTruthy()
   })
 
-  test('should todo not be added when name is not provided', () => {
+  it('Should not be added when name is not provided', () => {
     render(<TodoList />)
     const button = screen.getByTitle('addtodo-button')
     fireEvent.click(button)
@@ -58,7 +58,7 @@ describe('AddTodo submit', () => {
     expect(todos).toBe(3)
   })
 
-  test('should todo be added correctly with name and description', () => {
+  it('Should add name and description correctly', () => {
     render(<TodoList />)
     const todoNameValue = 'go to the gin'
     const todoNameInput = screen.getAllByTitle(NAME)[0]
