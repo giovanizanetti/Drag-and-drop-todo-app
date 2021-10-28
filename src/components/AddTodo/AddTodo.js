@@ -55,6 +55,7 @@ const AddTodo = ({ addTodo }) => {
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     // console.log(e.target.value)
     // // setTimeout(() => handleAddTodo(e), 100)
     handleAddTodo(e)
