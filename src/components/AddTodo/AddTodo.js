@@ -2,15 +2,14 @@ import { useState, useRef, useEffect } from 'react'
 import { Button, Form, Container } from 'react-bootstrap'
 import { v4 as generateUUID } from 'uuid'
 import { useTranslation } from 'react-i18next'
-import { NAME, DESCRIPTION } from '../../config/constants'
+import { DESCRIPTION } from '../../config/constants'
 import { useAlert } from '../../hooks/useAlert'
 
 const AddTodo = ({ addTodo }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const { t } = useTranslation()
-  const [alert, setAlert, isInvalid, setIsInvalid, setDirty] = useAlert(() => name.length)
-
+  const [alert, setAlert, isInvalid, setIsInvalid, setDirty] = useAlert(name.length)
   const inputRef = useRef()
   useEffect(() => {
     inputRef.current.focus()
@@ -39,7 +38,7 @@ const AddTodo = ({ addTodo }) => {
     const maxLengthAllowed = 13
     setDirty(true)
     if (name.length > maxLengthAllowed) {
-      const trimmedName = e.target.value.substr(0, maxLengthAllowed - 1)
+      const trimmedName = e.target.value.substr(0, maxLengthAllowed + 1)
       setIsInvalid(true)
       setName(trimmedName)
     } else {
@@ -55,9 +54,8 @@ const AddTodo = ({ addTodo }) => {
   }
 
   const handleSubmit = (e) => {
+    !name.length && setAlert(t('add_todo.name.no_length_alert'))
     e.preventDefault()
-    // console.log(e.target.value)
-    // // setTimeout(() => handleAddTodo(e), 100)
     handleAddTodo(e)
     setDirty(false)
   }
@@ -88,7 +86,10 @@ const AddTodo = ({ addTodo }) => {
         />
         <Button
           title='addtodo-button'
-          onClick={(e) => handleAddTodo(e)}
+          onClick={(e) => {
+            handleAddTodo(e)
+            setAlert(t('add_todo.name.no_length_alert'))
+          }}
           className='mx-auto d-flex mb-5'
           variant='primary center'
         >

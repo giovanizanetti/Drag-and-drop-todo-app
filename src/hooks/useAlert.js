@@ -8,7 +8,10 @@ export const useAlert = (length) => {
   const { t } = useTranslation()
 
   useEffect(() => {
+    console.log('effect')
+    console.log(dirty && 'DIRTY')
     if (dirty && !length) {
+      console.log(length, 'THis is lenght')
       setIsInvalid(true)
       setAlert(t('add_todo.name.no_length_alert'))
     }
