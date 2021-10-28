@@ -28,3 +28,6 @@
   outline: 0 !important;
   box-shadow: none !important;
 }
+.line-through {
+  text-decoration: line-through;
+}

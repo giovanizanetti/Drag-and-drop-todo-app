@@ -8,20 +8,20 @@ const defaultTodo = {
   completed: true,
 }
 describe('TodoItem', () => {
+  beforeEach(() => render(<TodoItem todo={defaultTodo} />))
+
   test('should to item render correctely', () => {
-    render(<TodoItem todo={defaultTodo} />)
     const todo = screen.getByTitle('todo')
     expect(todo).toHaveTextContent('my todo')
     expect(todo).toBeInTheDocument()
   })
 
   test('should todo be crossed out when completed', () => {
-    render(<TodoItem todo={defaultTodo} />)
-    const doneTodo = screen.getByTitle('completed')
-    expect(doneTodo).toBeInTheDocument()
+    const doneTodo = screen.getByTitle('todo-name')
+    const className = 'line-through'
+    expect(doneTodo).toHaveClass(className)
   })
   test('should todo display icon showing that there is a description inside', () => {
-    render(<TodoItem todo={defaultTodo} />)
     const hasDescriptionIcon = screen.getByTitle('description-icon')
     expect(hasDescriptionIcon).toBeInTheDocument()
   })

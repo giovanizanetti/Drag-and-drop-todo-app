@@ -14,7 +14,8 @@
   },
   "add_todo": {
     "name": {
-      "alert": "Todo must at least has a name!",
+      "no_length_alert": "Todo must at least has a name!",
+      "max_length_alert": "Max 14 characters allowed!!",
       "placeholder": "Add your todo name here"
     },
     "description": {

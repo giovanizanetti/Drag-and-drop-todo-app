@@ -30,7 +30,7 @@ const TodosMenu = ({ handleDeleteAll }) => {
         </div>
       </Modal>
 
-      <Dropdown>
+      <Dropdown title='menu-toggle'>
         <Dropdown.Toggle as='div' id='dropdown-basic'>
           <HiDotsVertical className='mb-3 float-right pointer' />
         </Dropdown.Toggle>
@@ -38,7 +38,7 @@ const TodosMenu = ({ handleDeleteAll }) => {
         <Dropdown.Menu align='end'>
           <Dropdown.Item onClick={() => setShow(true)} href='#/action-1'>
             <div className='d-flex align-items-center'>
-              <FaRegTrashAlt className='mx-1' /> {t('menu.delete_all.lable')}
+              <FaRegTrashAlt title='todos-menu' className='mx-1' /> {t('menu.delete_all.lable')}
             </div>
           </Dropdown.Item>
         </Dropdown.Menu>
